@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Age calculator app</title>
+
+  <link rel="stylesheet" href="bootstrap.min.css">
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+      margin-top: 5%
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+
+    .form-control {
+      color: hsl(0, 1%, 44%);
+      font-size: 32px;
+      font-weight: 400i, 700, 800i;
+      padding-left: 7%;
+      /* border-radius:7%; */
+      border-color: rgba(128, 128, 128, 0.66);
+      /* height: 52%; */
+
+      font-weight: bolder;
+    }
+
+    input[type=number]:focus {
+      border: 1.5px solid hsl(259, 100%, 65%);
+      box-shadow: none;
+    }
+
+    .form {
+      column-gap: 0ch;
+      height: auto;
+      font-family: Poppins;
+    }
+
+    label {
+      font-size: small;
+      letter-spacing: 5px;
+    }
+
+    body {
+      background-color: hsl(0, 0%, 94%);
+
+
+    }
+
+    .container {
+      width: 47%;
+      color: hsl(0, 1%, 44%);
+      font-weight: 400i, 700, 800i;
+      background-color: white;
+      margin: auto;
+      height: 580px;
+      margin-top: 5%;
+      padding-left: 4%;
+      padding-top: 3%;
+      border-radius: 3%;
+      border-bottom-right-radius: 25%;
+
+    }
+
+    .btn {
+      box-sizing: border-box;
+      display: inline-block;
+      height: 60px;
+      border-radius: 70%;
+      background-color: hsl(259, 100%, 65%);
+      align-self: center;
+
+
+    }
+
+    .btn:hover {
+      background-color: black;
+    }
+
+    .i {
+      width: 70%;
+      height: 70%;
+    }
+
+    .span {
+      border-top: 1px solid hsl(0, 0%, 86%);
+      /* height: 20px; */
+      display: inline-block;
+
+      text-align: center;
+      align-self: center;
+    }
+
+    .sec {
+
+      margin-top: 1%;
+      width: 95%;
+    }
+
+    .third {
+
+      color: black;
+      padding: 0px;
+
+
+      line-height: 0px;
+    }
+
+    .third h1 span {
+      color: hsl(259, 100%, 65%);
+    }
+
+    .third h1 {
+      margin: 0px;
+      font-weight: 900;
+      font-size: 90px;
+      display: inline;
+      line-height: 93%;
+      font-style: oblique;
+      margin-left:3%;
+    }
+    .third h1 span{
+      margin-right:3%;
+    }
+
+    .wrong {
+      color: hsla(0, 100%, 67%, 0.881);
+      margin-left: 2px;
+      font-size: medium;
+      font-style: italic;
+      margin-top: 1%;
+      display: none;
+      width: 100%;
+
+    }
+
+    @media (max-width:1300px) {
+
+      .form-control {
+        font-size: 24px;
+
+      }
+
+      .wrong {
+        font-size: small;
+      }
+    }
+
+    @media (max-width:1000px) {
+      .container {
+        width: 60%;
+      }
+
+      .form-control {
+        font-size: 24px;
+
+      }
+    }
+
+    @media (max-width:900px) {
+      .container {
+        width: 70%;
+      }
+
+      .form-control {
+        font-size: 24px;
+
+      }
+    }
+
+    @media (max-width:700px) {
+      .container {
+        width: 80%;
+
+      }
+
+      .form {
+        width: 90%;
+      }
+
+      .form-control {
+        font-size: 24px;
+
+      }
+    }
+
+    @media (max-width:600px) {
+      .container {
+        width: 85%;
+        height: 540px;
+      }
+
+      .form-control {
+        font-size: 24px;
+
+      }
+
+      .third h1 {
+        font-size: 75px;
+
+      }
+    }
+
+    @media(max-width:557px) {
+      .wrong {
+        font-size: x-small;
+      }
+    }
+
+    @media (max-width:455px) {
+      .container {
+        width: 90%;
+        height: 530px;
+
+      }
+
+      .form {
+        width: 98%;
+      }
+
+
+      .form-control {
+        font-size: 24px;
+
+      }
+
+      .third h1 {
+        font-size: 75px;
+
+      }
+
+      .btn {
+        position: relative;
+        align-self: center;
+
+
+        margin: 5% 35% 0px 45%;
+      }
+
+      .span {
+        position: absolute;
+      }
+
+      .third h1 {
+        font-size: 60px;
+
+      }
+
+      .third {
+        margin-top: 10%;
+      }
+    }
+
+    @media (max-width:390px) {
+      .third h1 {
+        font-size: 50px;
+      }
+
+      .form-control {
+        font-size: medium;
+      }
+
+      .wrong {
+        font-size: xx-small;
+      }
+
+      .container {
+        height: 480px;
+      }
+
+      .form {
+        width: 100%;
+      }
+    }
+    @media(max-width:280px){
+      .container{
+        height: 400px;
+        width: 94%;
+      }
+      .third h1{ 
+        font-size: 30px;
+      }
+      .wrong{
+        font-size: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+
+    <div class="row form">
+      <div class="col col-md-3    form-group">
+        <label for="" class="form-label">DAY</label>
+        <input type="number" class="form-control" placeholder="DD" >
+        <span class="wrong col ">en</span>
+
+      </div>
+      <div class="col  col-md-3   form-group">
+        <label for="" class="form-label">MONTH</label>
+        <input type="number" class="form-control" placeholder="MM">
+        <span class="wrong col">pla</span>
+
+      </div>
+      <div class="col   col-md-3   form-group">
+        <label for="" class="form-label">YEAR</label>
+        <input type="number" class="form-control" placeholder="YYYY">
+        <span class="wrong col">j o</span>
+      </div>
+    </div>
+    <div class="row   sec">
+      <span class="col col-10 span"> </span>
+      <button class="btn col ">
+        <img src="assets/images/icon-arrow.svg" alt="" class="i">
+      </button>
+    </div>
+    <div class="row third">
+      <h1><span class="clalc-num">--</span>years</h1>
+      <h1><span class="clalc-num">--</span>months</h1>
+      <h1><span class="clalc-num">--</span>days</h1>
+    </div>
+  </div>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="https://github.com/marbella267">Mai Gamal(marbella267)</a>.
+  </div>
+
+  <script>
+    let input = document.getElementsByClassName('form-control')
+    let btn = document.getElementsByClassName('btn')
+    let resault = document.getElementsByClassName('clalc-num')
+    let wrong = document.getElementsByClassName('wrong')
+    console.log(input, btn, resault)
+    let label = document.getElementsByClassName("form-label")
+    const date = new Date();
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1
+    let day = date.getDate()
+    var arr31 = [1, 3, 5, 7, 8, 10, 12]
+    var arr30 = [11, 9, 4, 6]
+    function errorstyle(i) {
+      label[i].style.color = 'hsla(0, 100%, 67%, 0.881)'
+      input[i].style.border = ' 1px solid hsl(0, 100%, 67%)'
+      wrong[i].style.display = 'inline-block'
+    }
+    btn[0].onclick = function () {
+      //  check if the input has value or not and add some styling change acoording to the resault
+      resault[0].innerText = `--`
+      resault[1].innerText = `--`
+      resault[2].innerText = `--`
+
+      for (i = 0; i < wrong.length; i++) {
+
+        if (input[i].value == '') {
+          errorstyle(i)
+          wrong[i].innerText = 'This field is required'
+
+        }
+
+        if (input[i].value != '') {
+          wrong[i].style.display = "none"
+          input[i].style.border = ' 1px solid rgba(128, 128, 128, 0.66)'
+          label[i].style.color = 'hsl(0, 1%, 44%)'
+        }
+      }
+      //end loop
+
+      if (input[0].value != '' && input[1].value != '' && input[2].value != '') {
+        //convert the input value to number
+        if(input[0].value.length>2){
+          errorstyle(0)
+          wrong[0].innerText="Must be vaild number"
+          return
+        }
+        if(input[1].value.length>2){
+          errorstyle(1)
+          wrong[1].innerText="Must be vaild number"
+          return
+        }
+        if(input[2].value[0]==0 )
+        {
+          errorstyle(2)
+          wrong[2].innerText="Enter a right number"
+          return
+        }
+        var input1;
+        var input2;
+        if(Array.from(input[0].value[0]==0)){
+          input[0].value[0].split()
+          input1=parseInt(input[0].value)
+        }
+       else{
+        input1=parseInt(input[0].value)
+       }
+       if(Array.from(input[1].value[0]==0)){
+          input[1].value[0].split()
+          input2=parseInt(input[1].value)
+        }
+       else{
+        input2=parseInt(input[1].value)
+       }
+      var input3 = parseInt(input[2].value)
+
+
+        //check if all input has vaild number
+        if (input3 > year || input3 < 1) {
+          errorstyle(2)
+          if (input3 > year) { wrong[2].innerText =
+             'Must be in the past' }
+          else { wrong[2].innerText = 'Enter a vaild year'
+         }
+
+        }
+        if (input2 > 12 || input2 < 1 ) {
+          errorstyle(1)
+          wrong[1].innerText = 'Must be a vaild month'
+        }
+        if (input1 > 31 || input1 < 1 )  {
+          errorstyle(0)
+          wrong[0].innerText = 'Must be a vaild day'
+        }
+
+        //end checking
+
+
+        if ((input1 > 0 && input1 < 32) && (input2 > 0 && input2 < 13) && (input3 > 0 && input3 <= year)) {
+          function res() 
+          {
+            var yres = year - input3
+            var mres=0;
+            var dres=0;
+            day=date.getDate()
+             
+            //calc month 
+            if (month < input2) {
+              yres -= 1
+              month += 12
+              mres = month - input2
+              month -= 12
+            }
+
+
+            else if (month >=  input2) {
+
+              if(month==input2 && input1>day)
+              {
+                console.log('month')
+                yres-=1
+                mres=12
+              }
+              else{
+                mres=month-input2
+              }
+
+            }
+            //end
+            //calc day
+            if (day < input1) {
+
+              mres -= 1
+               
+              if (mres < 0)
+               {
+                 
+                mres += 1
+              }
+
+              if (arr31.includes(input2)) {
+                day += 31
+              }
+              else if (arr30.includes(input2)) {
+                day += 30
+              }
+              else if (input3 % 4 == 0 && input3 % 400 != 0) 
+              {
+                day += 29
+
+              }
+              else if (input3 % 4 != 0) {
+                day += 28
+              }
+              dres=day - input1
+              
+            }
+            else {
+              dres = day - input1
+            }
+              
+              //add all the resault
+            resault[0].innerText = `${yres}`
+            resault[1].innerText = `${mres}`
+            resault[2].innerText = `${dres}`
+
+
+          }
+          //check if the is in the past
+          if (input3 == year && (input2 > month || input2 == month))
+           {
+            
+            if (input2 > month) {
+              errorstyle(1)
+              wrong[1].innerText = 'Must be in the past'
+              return
+            }
+            else if (input2 == month && input1 > day) {
+              errorstyle(0)
+              wrong[0].innerText = 'Must be in the past'
+              return
+            }
+            else {
+              res()
+            }
+          }
+          //if month equal 2
+          if (input2 == 2) {
+            if (input1 > 29) {
+              errorstyle(0)
+              wrong[0].innerText = 'Must be a vaild date'
+              return
+            }
+            if (((input1 == 29) && (input3 % 4 != 0)&&(input3%100==0))  ) 
+            {
+              errorstyle(0)
+              wrong[0].innerText = 'Must be a vaild date'
+              return
+
+            }
+            else{
+              res()
+            }
+
+          }//end
+
+
+          // if the value of day equale 30,31
+          else if (input1 == 31 && arr30.includes(input2)) {
+            errorstyle(0)
+            wrong[0].innerText = 'Must be a vaild date'
+            
+          }
+
+
+          else{
+            res()
+           }
+
+          //end
+          // if there is no error in the entered date start to calculate the resault
+           
+          //end of calculation
+
+        }
+        //end of the second condition
+
+      }//end of the first condition 
+
+
+
+      // input[i].onfocus=function(changee)
+      // {
+      //   input[i].style.border=' 1.5px solid hsl(259, 100%, 65%)'
+
+      // }
+
+
+
+
+    }
+  </script>
+   
+</body>
+
+</html>
